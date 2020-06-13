@@ -1,0 +1,3 @@
+int integer core_push_notification_style_dialog 0x7f020000
+int integer core_push_notification_style_dialog_and_statusBar 0x7f020001
+int integer core_push_notification_style_statusBar 0x7f020002

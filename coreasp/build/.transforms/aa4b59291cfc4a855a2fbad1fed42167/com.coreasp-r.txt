@@ -1,0 +1,4 @@
+com.coreasp
+integer core_push_notification_style_dialog
+integer core_push_notification_style_dialog_and_statusBar
+integer core_push_notification_style_statusBar

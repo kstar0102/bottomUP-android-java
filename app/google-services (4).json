@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "964522968980",
+    "firebase_url": "https://bottom-up2020.firebaseio.com",
+    "project_id": "bottom-up2020",
+    "storage_bucket": "bottom-up2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964522968980:android:34c00787f4420ba2973181",
+        "android_client_info": {
+          "package_name": "com.bottomup.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964522968980-29gi8h78evlt5328g98bo5q25eb3qk5g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7-PeehxWNvbrEnKDVCNAf7t_L3PhF4jU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964522968980-29gi8h78evlt5328g98bo5q25eb3qk5g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

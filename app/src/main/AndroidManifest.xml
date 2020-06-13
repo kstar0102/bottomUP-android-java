@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bottomup.android">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.webkit.PermissionRequest" />
+
+    <permission
+        android:name="com.bottomup.android.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.aspapp.android.permission.C2D_MESSAGE" />
+
+    <application
+        android:name=".activities.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_bottomup"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activities.TermsAndUseActivity"></activity>
+        <!-- [必須] CORE PUSHの設定キー -->
+        <meta-data
+            android:name="com.coreasp.corepush.configKey"
+            android:value="@string/core_push_config_key" /> <!-- [必須] CORE PUSHの通知起動時のアクティビティ -->
+        <meta-data
+            android:name="com.coreasp.corepush.notificationLaunchActivity"
+            android:value=".activities.SplashActivity" /> <!-- [必須] CORE PUSHの通知のアイコンリソースID -->
+        <meta-data
+            android:name="com.coreasp.corepush.iconResourceId"
+            android:resource="@drawable/ic_bottomup" /> <!-- CORE PUSHの通知のアイコンのアクセント色 (Android5.0以上で有効) -->
+        <!-- <meta-data android:name="com.coreasp.corepush.iconAccentColor" android:resource="@color/colorPrimary"/> -->
+        <!-- &lt;!&ndash; CORE PUSHの通知スタイル&ndash;&gt; -->
+        <!-- <meta-data android:name="com.coreasp.corepush.notificationStyle" android:resource="@integer/core_push_notification_style_statusBar"/> -->
+        <!-- &lt;!&ndash; CORE PUSHの通知スタイル&ndash;&gt; -->
+        <!-- <meta-data android:name="com.coreasp.corepush.notificationStyle" android:resource="@integer/core_push_notification_style_dialog"/> -->
+        <!-- CORE PUSHの通知スタイル -->
+        <meta-data
+            android:name="com.coreasp.corepush.notificationStyle"
+            android:resource="@integer/core_push_notification_style_dialog_and_statusBar" /> <!-- CORE PUSHの通知の複数表示設定。 -->
+        <!-- ステータスバーに最新の１件を表示する場合はtrue、複数件表示する場合はfalseを指定します。デフォルト値はtrueになります。 -->
+        <meta-data
+            android:name="com.coreasp.corepush.notificationCollapsed"
+            android:value="false" /> <!-- CORE ASPのデバッグログの有効化フラグ -->
+        <meta-data
+            android:name="com.coreasp.debugLogEnabled"
+            android:value="true" />
+
+        <activity android:name=".activities.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.MainActivity"></activity>
+
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true"
+            android:priority="-500">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.example.maru.mypermissionapplication" />
+            </intent-filter>
+        </receiver>
+        <!--
+        Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed.
+        -->
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+        <!--
+        FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service> <!-- <provider -->
+        <!-- android:name="com.google.firebase.provider.FirebaseInitProvider" -->
+        <!-- android:authorities="com.example.maru.mypermissionapplication.firebaseinitprovider" -->
+        <!-- android:exported="false" -->
+        <!-- android:initOrder="100" /> -->
+        <!-- CorePushMessagingService -->
+        <service android:name="com.coreasp.CorePushMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- CorePushInstanceIDService -->
+        <service android:name="com.coreasp.CorePushInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service> <!-- CorePushRegistrationIntentService -->
+        <service
+            android:name="com.coreasp.CorePushRegistrationIntentService"
+            android:exported="false" /> <!-- プッシュ通知のダイアログ用のアクティビティ -->
+        <activity
+            android:name="com.coreasp.CorePushDialog"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Dialog"></activity>
+    </application>
+
+</manifest>

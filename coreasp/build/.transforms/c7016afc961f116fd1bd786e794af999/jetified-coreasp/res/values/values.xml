@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="core_push_notification_style_dialog">1</integer>
+    <integer name="core_push_notification_style_dialog_and_statusBar">2</integer>
+    <integer name="core_push_notification_style_statusBar">0</integer>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navCatStory"
+        android:title="@string/bottomup_nav_title" />
+    <item
+        android:id="@+id/navCatExpressions"
+        android:title="@string/setting_title" />
+    <item
+        android:id="@+id/navCatPhonics"
+        android:title="@string/terms_menu_title" />
+</menu>

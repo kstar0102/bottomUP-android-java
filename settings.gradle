@@ -1,0 +1,2 @@
+include ':app', ':coreasp'
+rootProject.name='ASPAppAndroid'

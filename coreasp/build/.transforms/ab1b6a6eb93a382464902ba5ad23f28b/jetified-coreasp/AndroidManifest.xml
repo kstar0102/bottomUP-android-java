@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.coreasp"
+    android:versionCode="1"
+    android:versionName="1.1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="26" />
+
+    <application>
+
+        <!-- CorePushMessagingService -->
+        <service android:name="com.coreasp.CorePushMessagingService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- CorePushInstanceIDService -->
+        <service android:name="com.coreasp.CorePushInstanceIDService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- CorePushRegistrationIntentService -->
+        <service
+            android:name="com.coreasp.CorePushRegistrationIntentService"
+            android:exported="false" />
+
+        <!-- プッシュ通知のダイアログ用のアクティビティ -->
+        <activity
+            android:name="com.coreasp.CorePushDialog"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+    </application>
+
+</manifest>
